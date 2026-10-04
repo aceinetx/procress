@@ -23,9 +23,14 @@ typedef struct ProcressNode ProcressNode;
 ProcressNode *ProcressNode_start(ProcressNode *node, char *name);
 void ProcressNode_setName(ProcressNode *node, char *name);
 void ProcressNode_setEstimatedItems(ProcressNode *node, size_t items);
+size_t ProcressNode_getEstimatedItems(ProcressNode *node);
 void ProcressNode_advance(ProcressNode *node, int times);
+size_t ProcressNode_getItems(ProcressNode *node);
 void ProcressNode_end(ProcressNode *node);
 
 // #endregion
+
+void procressGlobalInit();
+void procressGlobalDeinit();
 
 #endif

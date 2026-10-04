@@ -1,5 +1,5 @@
 CC=cc
-CFLAGS=-std=c23 -g -Wall -Wextra -Wpedantic
+CFLAGS=-std=c23 -g -Wall -Wextra -Wpedantic -fsanitize=address 
 
 .PHONY: all
 all: procress.so procress.a test
@@ -17,4 +17,4 @@ procress.a: procress.o
 	ar r procress.a $^
 
 test: test.c procress.a
-	$(CC) -std=c99 -Wall -Wextra -Wpedantic -fsanitize=address -g -o $@ $^
+	$(CC) $(CFLAGS) -g -o $@ $^
